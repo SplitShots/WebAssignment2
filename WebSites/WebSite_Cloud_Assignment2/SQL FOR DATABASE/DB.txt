@@ -1,0 +1,200 @@
+﻿/*    ==Scripting Parameters==
+
+    Source Server Version : SQL Server 2016 (13.0.4001)
+    Source Database Engine Edition : Microsoft SQL Server Enterprise Edition
+    Source Database Engine Type : Standalone SQL Server
+
+    Target Server Version : SQL Server 2016
+    Target Database Engine Edition : Microsoft SQL Server Enterprise Edition
+    Target Database Engine Type : Standalone SQL Server
+*/
+
+USE [Restaurant]
+GO
+
+/****** Object:  Table [dbo].[UserInformation]    Script Date: 10/2/2017 6:15:26 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[UserInformation](
+	[LName] [varchar](50) NOT NULL,
+	[FName] [varchar](50) NOT NULL,
+	[PCode] [varchar](7) NULL,
+	[PhoneNumber] [varchar](10) NULL,
+	[Province] [varchar](50) NULL,
+	[Menu] [varchar](50) NULL,
+	[DeliveryStatus] [tinyint] NULL,
+	[Comments] [varchar](250) NULL
+) ON [PRIMARY]
+GO
+
+//DISPLAY
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP (1000) [LName]
+      ,[FName]
+      ,[PCode]
+      ,[PhoneNumber]
+      ,[Province]
+      ,[Menu]
+      ,[DeliveryStatus]
+      ,[Comments]
+  FROM [Restaurant].[dbo].[UserInformation]
+
+
+
+  //DB
+  /*    ==Scripting Parameters==
+
+    Source Server Version : SQL Server 2016 (13.0.4001)
+    Source Database Engine Edition : Microsoft SQL Server Enterprise Edition
+    Source Database Engine Type : Standalone SQL Server
+
+    Target Server Version : SQL Server 2016
+    Target Database Engine Edition : Microsoft SQL Server Enterprise Edition
+    Target Database Engine Type : Standalone SQL Server
+*/
+
+USE [master]
+GO
+
+/****** Object:  Database [Restaurant]    Script Date: 10/2/2017 6:16:14 AM ******/
+CREATE DATABASE [Restaurant]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Restaurant', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Restaurant.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'Restaurant_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Restaurant_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+GO
+
+ALTER DATABASE [Restaurant] SET COMPATIBILITY_LEVEL = 130
+GO
+
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Restaurant].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+
+ALTER DATABASE [Restaurant] SET ANSI_NULL_DEFAULT OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET ANSI_NULLS OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET ANSI_PADDING OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET ANSI_WARNINGS OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET ARITHABORT OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET AUTO_CLOSE OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET AUTO_SHRINK OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET AUTO_UPDATE_STATISTICS ON 
+GO
+
+ALTER DATABASE [Restaurant] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET CURSOR_DEFAULT  GLOBAL 
+GO
+
+ALTER DATABASE [Restaurant] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET NUMERIC_ROUNDABORT OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET QUOTED_IDENTIFIER OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET RECURSIVE_TRIGGERS OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET  DISABLE_BROKER 
+GO
+
+ALTER DATABASE [Restaurant] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET TRUSTWORTHY OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET PARAMETERIZATION SIMPLE 
+GO
+
+ALTER DATABASE [Restaurant] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET HONOR_BROKER_PRIORITY OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET RECOVERY FULL 
+GO
+
+ALTER DATABASE [Restaurant] SET  MULTI_USER 
+GO
+
+ALTER DATABASE [Restaurant] SET PAGE_VERIFY CHECKSUM  
+GO
+
+ALTER DATABASE [Restaurant] SET DB_CHAINING OFF 
+GO
+
+ALTER DATABASE [Restaurant] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+
+ALTER DATABASE [Restaurant] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+
+ALTER DATABASE [Restaurant] SET DELAYED_DURABILITY = DISABLED 
+GO
+
+ALTER DATABASE [Restaurant] SET QUERY_STORE = OFF
+GO
+
+USE [Restaurant]
+GO
+
+ALTER DATABASE SCOPED CONFIGURATION SET LEGACY_CARDINALITY_ESTIMATION = OFF;
+GO
+
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET LEGACY_CARDINALITY_ESTIMATION = PRIMARY;
+GO
+
+ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = 0;
+GO
+
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET MAXDOP = PRIMARY;
+GO
+
+ALTER DATABASE SCOPED CONFIGURATION SET PARAMETER_SNIFFING = ON;
+GO
+
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET PARAMETER_SNIFFING = PRIMARY;
+GO
+
+ALTER DATABASE SCOPED CONFIGURATION SET QUERY_OPTIMIZER_HOTFIXES = OFF;
+GO
+
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET QUERY_OPTIMIZER_HOTFIXES = PRIMARY;
+GO
+
+ALTER DATABASE [Restaurant] SET  READ_WRITE 
+GO
+
